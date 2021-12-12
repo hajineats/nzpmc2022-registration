@@ -1,1 +1,2 @@
 Developed MERN stack web app to minimise registration errors and meet NZPMC-specific business logic. Teachers and students can indepedently register. Teachers can retrieve CSV for students registrations. Implemented an admin dashboard where the admin can perform CRUD operations on registrations. Visit https://nzpmc2022.herokuapp.com for demo.
+Backend can be found here: https://github.com/hajineats/nzpmc2022-registration-backend

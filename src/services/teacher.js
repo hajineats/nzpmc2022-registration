@@ -6,6 +6,11 @@ export const createTeacher = (details)=>{
     return req.then(res=>res.data)
 }
 
+export const getOneTeacherRegistration = async (teacherCode)=>{
+    const req = axios.post('/api/teachers/csv', {teacherCode})
+    const res = req.then(res=>res.data)
+    return res
+}
 
 export const getAllTeachers = ()=>{
     const req = axios.get('/api/teachers')

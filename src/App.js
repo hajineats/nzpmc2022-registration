@@ -5,21 +5,19 @@ import {NZPMCTeacherForm} from "./NZPMCTeacherForm";
 import {Link, Route, Switch,} from "react-router-dom"
 import {Warning} from "./Warning";
 import NZPMCStudentForm from "./NZPMCStudentForm"
-import Dashboard from "./Dashboard";
+import Dashboard, {generateCSV} from "./Dashboard";
 import {useState} from "react";
-import {sendTeacherCSV} from "./services/mail";
+import {getOneTeacherRegistration} from "./services/teacher";
 
 const SearchByTeacher = ()=>{
     const [teacherCode, setTeacherCode] = useState("")
-    const handleEmailMe = ()=>{
-        sendTeacherCSV(teacherCode)
-            .then(res=>{
-                console.log(res)
-                alert("Check your inbox!")
-            })
-            .catch(err=>{
-                alert("Make sure that you have input a valid teacher code")
-            })
+    const getCSV = async ()=>{
+        try {
+            const res = await getOneTeacherRegistration(teacherCode)
+            generateCSV([res])
+        }catch(err){
+            alert("Make sure that you have entered a valid teacher code. ")
+        }
     }
     return (
         <section className="bg-primary text-light p-5">
@@ -30,14 +28,14 @@ const SearchByTeacher = ()=>{
                             Teachers:
                         </h3>
                         <p>
-                            You can receive csv of your students' details by entering your teacher code into this box.
+                            You can receive csv of your students' registration details by entering your teacher code into this box.
                         </p>
                     </Col>
                     <Col xs={8}>
                         <InputGroup className="mb-3">
                             <FormControl onChange={e=>setTeacherCode(e.target.value)} />
-                            <Button onClick={handleEmailMe} variant="dark" >
-                                Email me!
+                            <Button onClick={getCSV} variant="dark" >
+                                Generate CSV!
                             </Button>
                         </InputGroup>
                     </Col>

@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const createStudent = (details)=>{
+    console.log('details:',details)
     const req = axios.post('/api/students', details)
     return req.then(res=>res.data)
 }

@@ -46,7 +46,6 @@ const SearchByTeacher = ()=>{
 }
 
 const App = () => {
-
     return (
         <>
             <Navigation/>
@@ -71,7 +70,7 @@ const App = () => {
                                 Thank you for signing up.
                             </h1>
                             <p>
-                                Confirmation details are sent to your email. If you have any queries or issues, please email contact.nzpmc@gmail.com.
+                                Provide your students with your unique teacher code so that they can self-register. If you have any queries or issues, please email contact.nzpmc@gmail.com.
                             </p>
                             <Link to="/">
                                 <Button>Back to Main Menu</Button>

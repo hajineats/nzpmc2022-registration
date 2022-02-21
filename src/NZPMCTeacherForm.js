@@ -58,7 +58,8 @@ export function NZPMCTeacherForm() {
                 <Form.Group as={Row}>
                     <div>
                         <Form.Label>I am a...</Form.Label>
-                        <select defaultValue={"Physics Teacher"} onChange={handleChange('teacherCategory')} className="form-select" aria-label="select example" required>
+                        <select onChange={handleChange('teacherCategory')} className="form-select" aria-label="select example" required>
+                            <option value={null}>Select...</option>
                             <option value="Physics Teacher">Physics Teacher</option>
                             <option value="Math Teacher">Math Teacher</option>
                             <option value="Other subject teacher">Other subject teacher</option>
@@ -71,6 +72,7 @@ export function NZPMCTeacherForm() {
                     <div>
                         <Form.Label>My school is in</Form.Label>
                         <select defaultValue={"North Island"} onChange={handleChange('island')} className="form-select" aria-label="select example" required>
+                            <option vale={null}>Select...</option>
                             <option value="North Island">North Island</option>
                             <option value="South Island">South Island</option>
                         </select>
@@ -87,6 +89,9 @@ export function NZPMCTeacherForm() {
             <h3>Teacher Registration</h3>
             <p className="my-3">
                 You will receive a teacher code after registration. <strong>It is important that you don't lose this, as you won't be able to retrieve it once it is lost.</strong> Your students will use this code to register. In addition, you can use this code to download csv of all the registered students so far on the homepage of this website.
+            </p>
+            <p className="my-3">
+                We prefer that only <strong>one</strong> teacher per school registers, so that we have one point of contact regarding payment and competition. In this case, a teacher that registered can share their teacher code to other teachers.
             </p>
 
             <FormForTeacher/>

@@ -1,4 +1,5 @@
-import {Button, Col, Form, Row} from "react-bootstrap";
+import {Button, Col, Row} from "react-bootstrap";
+import Form from 'react-bootstrap/Form';
 import {useState} from "react";
 import {createStudent} from "./services/student";
 import {Link, useHistory} from "react-router-dom";
@@ -76,7 +77,8 @@ export default function NZPMCTeacherForm() {
                 <Form.Group as={Row}>
                     <div>
                         <Form.Label>Year Level</Form.Label>
-                        <select defaultValue={"9"} onChange={handleChange('yearLevel')} className="form-select" aria-label="select example" required>
+                        <select onChange={handleChange('yearLevel')} className="form-select" aria-label="select example" required>
+                            <option value={null}>Select...</option>
                             <option value="8">Below Year 9</option>
                             <option value="9">Year 9</option>
                             <option value="10">Year 10</option>
@@ -89,7 +91,8 @@ export default function NZPMCTeacherForm() {
                 <Form.Group as={Row}>
                     <div>
                         <Form.Label>How did you hear about us?</Form.Label>
-                        <select defaultValue={"Teacher"} onChange={handleChange('howDidYouHear')} className="form-select" aria-label="select example" required>
+                        <select onChange={handleChange('howDidYouHear')} className="form-select" aria-label="select example" required>
+                            <option value={null}>Select...</option>
                             <option value="Facebook">Facebook</option>
                             <option value="School">School</option>
                             <option value="Teacher">Teacher</option>
@@ -103,7 +106,8 @@ export default function NZPMCTeacherForm() {
                 <Form.Group as={Row}>
                     <div>
                         <Form.Label>What motivated you the most to take this competition?</Form.Label>
-                        <select defaultValue={"It sounded fun"} onChange={handleChange('whatMotivatedYou')} className="form-select" aria-label="select example" required>
+                        <select onChange={handleChange('whatMotivatedYou')} className="form-select" aria-label="select example" required>
+                            <option value={null}>Select...</option>
                             <option value="Parents">Parents</option>
                             <option value="Friends">Friends</option>
                             <option value="Teacher/School">Teacher/School</option>

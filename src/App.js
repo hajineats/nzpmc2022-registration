@@ -8,6 +8,7 @@ import NZPMCStudentForm from "./NZPMCStudentForm"
 import Dashboard, {generateCSV} from "./Dashboard";
 import {useState} from "react";
 import {getOneTeacherRegistration} from "./services/teacher";
+import ThankYou from './ThankYou'
 
 const SearchByTeacher = ()=>{
     const [teacherCode, setTeacherCode] = useState("")
@@ -64,21 +65,8 @@ const App = () => {
                     <Route path="/teacher">
                         <NZPMCTeacherForm/>
                     </Route>
-                    <Route path="/ThankYou">
-                        <Container>
-                            <h1 className={"my-3"}>
-                                Thank you
-                            </h1>
-                            <p>
-                                Your registration is now complete. If you are a teacher, please provide your students with your unique teacher code so that they can self-register. If you are a student, you will be contacted by your school regarding payment when the registration closes.
-                            </p>
-                            <p>
-                                If you have any queries or issues, please email contact.nzpmc@gmail.com.
-                            </p>
-                            <Link to="/">
-                                <Button>Back to Main Menu</Button>
-                            </Link>
-                        </Container>
+                    <Route path="/ThankYou/:id">
+                        <ThankYou/>
                     </Route>
                     <Route path="/Dashboard">
                         <Dashboard/>

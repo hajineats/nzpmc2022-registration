@@ -23,7 +23,7 @@ export default function NZPMCTeacherForm() {
 
         setLoading(true)
         createStudent(details)
-            .then(r=>history.push('/ThankYou'))
+            .then(r=>history.push(`/ThankYou/${r.teacher}`))
             .catch((err)=>{
                 console.log(err)
                 if(err.response){

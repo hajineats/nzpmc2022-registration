@@ -4,11 +4,11 @@ import {Button} from "react-bootstrap";
 import {Teacher} from "./dashboard/Teacher";
 export const generateCSV = (teachers)=>{
     let csv = 'StudentFirstName,StudentMiddleName,StudentSurname,StudentEmail,StudentYearLevel,HeardFrom,ReasonForTaking,TeacherCode,'
-    csv+='TeacherName,TeacherEmail,SchoolName,SchoolAddress,PhoneNumber,TeacherCategory,Island\n';
+    csv+='TeacherName,TeacherEmail,SchoolName,SchoolAddress,PhoneNumber,TeacherCategory,Island,City\n';
     teachers.forEach(t=>{
         t.students.forEach(s=>{
             const row = [s.firstName, s.middleName, s.surname, s.email, s.yearLevel, s.howDidYouHear, s.whatMotivatedYou, s.teacher,
-                t.name,t.email,t.schoolName,t.schoolAddress, t.phoneNumber, t.teacherCategory, t.island]
+                t.name,t.email,t.schoolName,t.schoolAddress, t.phoneNumber, t.teacherCategory, t.island, t.city]
             csv += row.join(',')
             csv += "\n"
         })

@@ -20,8 +20,7 @@ export function NZPMCTeacherForm() {
         setLoading(true)
         createTeacher(details)
             .then(r=>{
-                alert(`Your teacher code: ${r._id}\nNote it down somewhere so you don't lose it.`)
-                history.push('/ThankYou')
+                history.push(`/ThankYou/${r._id}`)
             })
             .catch((err)=>{
                 if(err.response){
@@ -70,11 +69,34 @@ export function NZPMCTeacherForm() {
                 </Form.Group>
                 <Form.Group as={Row}>
                     <div>
-                        <Form.Label>My school is in</Form.Label>
-                        <select defaultValue={"North Island"} onChange={handleChange('island')} className="form-select" aria-label="select example" required>
-                            <option vale={null}>Select...</option>
+                        <Form.Label>My school is in...</Form.Label>
+                        <select onChange={handleChange('island')} className="form-select" aria-label="select example" required>
+                            <option value={null}>Select...</option>
                             <option value="North Island">North Island</option>
                             <option value="South Island">South Island</option>
+                        </select>
+                    </div>
+                </Form.Group>
+                <Form.Group as={Row}>
+                    <div>
+                        <Form.Label>My school is in the city of...</Form.Label>
+                        <select onChange={handleChange('city')} className="form-select" required>
+                            <option value={null}>Select...</option>
+                            <option value="Auckland">Auckland</option>
+                            <option value="Bay of Plenty">Bay of Plenty</option>
+                            <option value="Canterbury">Canterbury</option>
+                            <option value="Gisborne">Gisborne</option>
+                            <option value="Hawke's Bay">Hawke's Bay</option>
+                            <option value="Marlborough">Marlborough</option>
+                            <option value="Nelson - Tasman">Nelson - Tasman</option>
+                            <option value="Northland">Northland</option>
+                            <option value="Otago">Otago</option>
+                            <option value="Southland">Southland</option>
+                            <option value="Taranaki">Taranaki</option>
+                            <option value="Waikato">Waikato</option>
+                            <option value="Wellington">Wellington</option>
+                            <option value="West Coast">West Coast</option>
+                            <option value="Whanganui - Manawatu">Whanganui - Manawatu</option>
                         </select>
                     </div>
                 </Form.Group>
